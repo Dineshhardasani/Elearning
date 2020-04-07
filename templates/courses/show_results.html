@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<center><h4>You scored {{score}}%</h4><br>
+  <a class="btn btn-primary" href="{{ section.get_next_section_url }}">Next section</a>
+  <a class="btn btn-primary" href="{{ section.get_test_url }}">Try Again</a>
+</center>
+</div>
+{% endblock %}

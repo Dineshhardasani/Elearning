@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+<head>
+  <title>ELearning</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+  <div class="header"><!--header-->
+  <div class="container">
+  <table>
+  <tr>
+     <td style="color:black;"><p >Help-line 0761-2450957,4038078</p> </td>
+
+     <td valign="middle" align="right" class="style36" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+     <td align="right" class="style37" style="color:black;" align="right" >Hall 4, IIITDM campus, Jabalpur(M.P.)</td>
+   </tr>
+  </table>
+</div>
+</div><!--end of header-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light"><!--navbar-->
+  <a class="navbar-brand" href="#"><p>E-Learning</p></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" href="#" >Home </a>
+      <a class="nav-item nav-link active" href="#Aboutus">About us</a>
+      <a class="nav-item nav-link active" href="course_list">Courses</a>
+      {% if user.is_authenticated %}
+      <li><a class="nav-item nav-link active" href="profile?{{user.id}}">Hello, {{user.first_name}}</a></li>
+      <li><a class="nav-item nav-link active" href="logout">Logout</a></li>
+      {% else %}
+      <a class="nav-item nav-link active" href="login">Login/Signup</a>
+      <a class="nav-item nav-link active" href="#contact">Contact us</a>
+      {% endif %}
+    </div>
+  </div>
+</nav><!--end of navbar-->
+{% block content %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+{% block content %}
+<div class="container">
+<form action="" method="POST">
+  {% csrf_token %}
+  <ol>
+  {% for question in section.question_set.all %}
+  <li><div style="float:left"><strong>{{question.text}}</strong></div><div style="float:right;">Marks :4</div></li>
+
+    {% for answer in question.answer_set.all %}
+
+      <input type="radio" name="question-{{question.id}}" value="{{ answer.id }}">{{answer}}</input>
+
+    {% endfor %}
+  </ol>
+  {% endfor %}
+  <center><button class="btn btn-primary" type="submit" value="submit">Submit</button></center>
+</form>
+{% endblock %}
+</div>

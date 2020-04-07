@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Section Name</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+
+{% for i,j in mylist %}
+<tr>
+  <td>{{i}}</td>
+  <td>{{j}}%</td>
+</tr>
+{% endfor %}
+</tbody>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+  <div class="container">
+<div class="row">
+          {% for course in courses %}
+            <div class="col-lg-4 col-md-6">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Courses">
+            <div class="card-body">
+            <h5 class="card-title">{{course.name}}</h5>
+            <p class="card-text">This Course has many Sections and Quizes and you can attempt any no. of time this course.</p>
+            <a href="{{course.get_absolute_url}}" class="btn btn-primary">Start Course</a>&emsp;
+            <a href="{{course.get_result_url}}" class="btn btn-primary">Result</a>
+          </div>
+          </div>
+        </div>
+          {% endfor %}
+      </div>
+      </div>
+{% endblock %}

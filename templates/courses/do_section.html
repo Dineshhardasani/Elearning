@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<center><h4>{{section.title}}</h4></center>
+<p>
+  {{section.test}}
+</p>
+<center><a class="btn btn-primary" href="{{section.get_test_url}}">Take Quiz</a></center>
+</div>
+{% endblock %}

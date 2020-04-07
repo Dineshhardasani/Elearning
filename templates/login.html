@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+
+{% block content %}
+ <div style="background-color:#2C87FE;">
+ <div class="container">
+   <div class="row">
+     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+       <div class="card card-signin my-5">
+         <div class="card-body">
+           <h5 class="card-title text-center">Login</h5>
+           <form class="form-signin" method="post">
+             {% csrf_token %}
+             <div class="form-label-group">
+               <label for="inputEmail">Email address</label>
+               <input type="email" id="inputEmail" name="Email" class="form-control" placeholder="Email address" required autofocus>
+             </div>
+
+             <div class="form-label-group">
+               <label for="inputPassword">Password</label>
+               <input type="password" id="inputPassword" name="Password" class="form-control" placeholder="Password" required>
+             </div>
+
+             <div class="custom-control custom-checkbox mb-3">
+               <input type="checkbox" class="custom-control-input" id="customCheck1">
+               <label class="custom-control-label" for="customCheck1">Remember password</label>
+             </div>
+             <button class="btn btn-lg btn-primary btn-block text-uppercase" name="Login" type="submit">Login</button>
+             <a class="tab-pane fade show active" name="btnAddMore" href="http://127.0.0.1:8000/signup">New User! Sign Up here</a>
+           </form>
+           <div class="text-center social-btn"><a  href="{% provider_login_url "google"%}"><i class="fa fa-google" >::before</i>Google Connect</a></button></div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+{% endblock %}
