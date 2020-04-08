@@ -1,8 +1,8 @@
-
 {% extends "base.html" %}
 {% load static%}
 {% block content %}
-  <div class="container">
+<br>
+<div class="container">
 <div class="row">
           {% for section in section %}
             <div class="col-lg-4 col-md-6">
@@ -10,7 +10,7 @@
             <img class="card-img-top" src="..." alt="Courses">
             <div class="card-body">
             <h5 class="card-title">{{section}}</h5>
-            <p class="card-text">{{section.test}}</p>
+            <p class="card-text">{{section.Subtitle}}</p>
             <a href="{{section.get_absolute_url}}" class="btn btn-primary">Notes</a>&emsp;
             <a href="{{section.get_instruction}}" class="btn btn-primary">Start Quiz</a>
           </div>

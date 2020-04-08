@@ -18,13 +18,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path,include
 from courses.views import course_detail, course_list, do_section,do_test,show_results,home,section_instructions,all_result
-from accounts.views import login,signup,logout
+from accounts.views import login,signup
 
 urlpatterns = [
     path('',home,name='home'),
     path('login',login,name='login'),
     path('signup',signup,name='signup'),
-    path('logout/',logout,name='logout'),
     path('socialaccounts/',include('allauth.urls')),
     path('course_list', course_list, name='course_list'),
     path('all_result/<int:course_id>',all_result,name='all_result'),

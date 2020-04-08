@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+  <br>
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Section Name</th>
-        <th>Percentage</th>
+        <th style="background-color:#999966;">Section Name</th>
+        <th style="background-color:#999966;">Percentage</th>
       </tr>
     </thead>
     <tbody>
 
 {% for i,j in mylist %}
 <tr>
-  <td>{{i}}</td>
-  <td>{{j}}%</td>
+  <td style="background-color:#ccccb3;">{{i}}</td>
+  <td style="background-color:#ccccb3;">{{j}}%</td>
 </tr>
 {% endfor %}
 </tbody>

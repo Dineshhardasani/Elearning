@@ -3,6 +3,7 @@ from django.db import transaction
 from django.core.exceptions import PermissionDenied,SuspiciousOperation
 from django.urls import reverse
 from courses.models import Course,Section,Question,UserAnswer
+from django.contrib.auth.models import User,auth
 
 # Create your views here.
 def home(request):
@@ -14,7 +15,9 @@ def do_section(request,section_id):
 
 def is_authenticated(request):
     if not request.user.is_authenticated:
-        raise PermissionDenied
+        return False
+    else:
+        return True
 
 def course_detail(request,course_id):
     course=Course.objects.get(id=course_id)
@@ -47,11 +50,12 @@ def perform_test(user,data,section):
             UserAnswer.objects.create(user=user,question=question,answer_id=answer_id,)
 
 def course_list(request):
-    is_authenticated(request)
-    courses=Course.objects.all()
-    print(courses)
-    return render(request,'courses/course_list.html',{'courses':courses,})
-
+    if(is_authenticated(request)):
+        courses=Course.objects.all()
+        print(courses)
+        return render(request,'courses/course_list.html',{'courses':courses,})
+    else:
+        return redirect('/')
 
 def do_section(request,section_id):
     section=Section.objects.get(id=section_id)

@@ -12,7 +12,7 @@ class Course(models.Model):
 
     def get_result_url(self):
         return reverse('all_result',args=(self.id,))
-        
+
     def __str__(self):
         return self.name
 
@@ -20,7 +20,8 @@ class Section(models.Model):
     course=models.ForeignKey(Course,on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
     number=models.IntegerField()
-    test=models.TextField()
+    Subtitle=models.CharField(max_length=100)
+    text=models.TextField()
 
     class Meta:
         unique_together=('course','number',)
@@ -44,7 +45,7 @@ class Section(models.Model):
 
 class Question(models.Model):
     section=models.ForeignKey(Section,on_delete=models.CASCADE)
-    text=models.CharField(max_length=1000)
+    text=models.TextField()
 
     def __str__(self):
         return self.text

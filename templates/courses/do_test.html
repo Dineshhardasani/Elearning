@@ -1,20 +1,26 @@
-{% extends "base.html"%}
+{%extends "base.html"%}
 {% block content %}
+<div style="background-color:#ccccb3;">
 <div class="container">
+  <center><h4>{{section.title}}</h4></center>
 <form action="" method="POST">
   {% csrf_token %}
   <ol>
   {% for question in section.question_set.all %}
-  <li><div style="float:left"><strong>{{question.text}}</strong></div><div style="float:right;">Marks :4</div></li>
+  <li><b>{{question.text|linebreaks}}</b></li>
 
     {% for answer in question.answer_set.all %}
 
-      <input type="radio" name="question-{{question.id}}" value="{{ answer.id }}">{{answer}}</input>
+      <div style="width: 100%; height: 50px; "><input type="radio" name="question-{{question.id}}" value="{{ answer.id}}">{{answer}}</input><hr></div>
 
     {% endfor %}
-  </ol>
+    <br>
+
   {% endfor %}
   <center><button class="btn btn-primary" type="submit" value="submit">Submit</button></center>
 </form>
-{% endblock %}
 </div>
+</body>
+</html>
+</div>
+{% endblock %}
